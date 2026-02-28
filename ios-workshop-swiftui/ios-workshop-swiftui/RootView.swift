@@ -16,6 +16,12 @@ struct RootView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            print("RootView appeared")
+        }
+        .onDisappear {
+            print("RootView disappeared")
+        }
         .onChange(of: scenePhase) { _, newPhase in
             switch newPhase {
             case .active:
