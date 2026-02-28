@@ -12,7 +12,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print("didFinishLaunchingWithOptions")
         return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // App became active again - wont fire because this is a modern project using a SceneDelegate
+        print("applicationDidBecomeActive")
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        // App moving to inactive - wont fire because this is a modern project using a SceneDelegate
+        print("applicationWillResignActive")
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // App is now in background - wont fire because this is a modern project using a SceneDelegate
+        print("applicationDidEnterBackground")
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // App coming back from background - wont fire because this is a modern project using a SceneDelegate
+        print("applicationWillEnterForeground")
     }
 
     // MARK: UISceneSession Lifecycle
