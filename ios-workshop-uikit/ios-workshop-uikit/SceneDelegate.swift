@@ -34,6 +34,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
+        /*
+         Other interruptions could be:
+         - Control Center is pulled down
+         - Notification Center appears
+         - App switcher is opened
+         - Temporary interruption occurs
+         **/
         print("sceneWillResignActive")
     }
 
