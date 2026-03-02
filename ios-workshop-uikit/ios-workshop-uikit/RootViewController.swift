@@ -7,6 +7,13 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+    private let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.alwaysBounceVertical = true
+        return sv
+    }()
+
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -51,11 +58,21 @@ class RootViewController: UIViewController {
         stackView.addArrangedSubview(layoutButton)
         stackView.addArrangedSubview(paginationButton)
         stackView.addArrangedSubview(interopButton)
-        view.addSubview(stackView)
+
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
 
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 32),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -32),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
         ])
 
         layoutButton.addTarget(self, action: #selector(layoutButtonTapped), for: .touchUpInside)

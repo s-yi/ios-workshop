@@ -10,6 +10,7 @@ struct RootView: View {
 
     var body: some View {
         NavigationStack {
+            ScrollView {
             VStack(spacing: 16) {
                 Text("Views Deepdive")
                     .font(.system(size: 20, weight: .bold))
@@ -29,6 +30,8 @@ struct RootView: View {
                 NavigationLink(destination: InteropExampleView()) {
                     ReusableButton(title: "SwiftUI → UIKit Interop")
                 }
+            }
+            .padding(.vertical, 32)
             }
             .navigationTitle("Root")
         }
