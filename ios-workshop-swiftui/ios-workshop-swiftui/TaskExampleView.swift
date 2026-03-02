@@ -24,6 +24,9 @@ enum FoodCategory: String, CaseIterable {
 ///   previous in-flight task before starting a new one (cooperative cancellation).
 /// - Wrapping the await in do-catch handles CancellationError (thrown when the
 ///   task is cancelled) without letting it propagate out of the non-throwing closure.
+/// - The closure runs on the MainActor (same isolation as the View), so reading
+///   and writing @State properties inside it is safe without extra actors or
+///   DispatchQueue.main hops.
 struct TaskExampleView: View {
 
     @State private var selectedCategory = FoodCategory.fruits
