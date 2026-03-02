@@ -30,6 +30,7 @@ class RootViewController: UIViewController {
     private let paginationButton = ReusableButton(title: "Recycling & Pagination example")
     private let interopButton = ReusableButton(title: "UIKit → SwiftUI Interop")
     private let assetsLocalizationLabel = SectionLabel(text: "Assets and Localization")
+    private let imageButton = ReusableButton(title: "Image example")
     private let localizationButton = ReusableButton(title: "Localization example")
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -61,6 +62,7 @@ class RootViewController: UIViewController {
         stackView.addArrangedSubview(paginationButton)
         stackView.addArrangedSubview(interopButton)
         stackView.addArrangedSubview(assetsLocalizationLabel)
+        stackView.addArrangedSubview(imageButton)
         stackView.addArrangedSubview(localizationButton)
 
         view.addSubview(scrollView)
@@ -83,6 +85,7 @@ class RootViewController: UIViewController {
         exampleLayoutButton.addTarget(self, action: #selector(exampleLayoutButtonTapped), for: .touchUpInside)
         paginationButton.addTarget(self, action: #selector(paginationButtonTapped), for: .touchUpInside)
         interopButton.addTarget(self, action: #selector(interopButtonTapped), for: .touchUpInside)
+        imageButton.addTarget(self, action: #selector(imageButtonTapped), for: .touchUpInside)
         localizationButton.addTarget(self, action: #selector(localizationButtonTapped), for: .touchUpInside)
     }
 
@@ -104,6 +107,11 @@ class RootViewController: UIViewController {
     @objc private func interopButtonTapped() {
         let interopVC = InteropExampleViewController()
         navigationController?.pushViewController(interopVC, animated: true)
+    }
+
+    @objc private func imageButtonTapped() {
+        let imageVC = ImageExampleViewController()
+        navigationController?.pushViewController(imageVC, animated: true)
     }
 
     @objc private func localizationButtonTapped() {

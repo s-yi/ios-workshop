@@ -32,6 +32,9 @@ struct RootView: View {
                 }
                 Text("Assets and Localization")
                     .font(.system(size: 20, weight: .bold))
+                NavigationLink(destination: ImageExampleView()) {
+                    ReusableButton(title: "Image example")
+                }
                 NavigationLink(destination: LocalizationExampleView()) {
                     ReusableButton(title: "Localization example")
                 }

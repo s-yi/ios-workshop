@@ -22,6 +22,40 @@
     "Featured Card" : {
 
     },
+    "image_example_caption" : {
+      "comment" : "Caption below the image on the image example screen",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loaded from Assets.xcassets using Image(_:)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargado desde Assets.xcassets usando Image(_:)"
+          }
+        }
+      }
+    },
+    "image_example_title" : {
+      "comment" : "Navigation title for the image example screen",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image Example"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejemplo de imagen"
+          }
+        }
+      }
+    },
     "globe_icon_accessibility_label" : {
       "comment" : "Accessibility label for the globe image on the localization example screen",
       "extractionState" : "stale",
