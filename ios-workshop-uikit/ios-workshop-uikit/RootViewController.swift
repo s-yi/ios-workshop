@@ -31,6 +31,8 @@ class RootViewController: UIViewController {
     private let interopButton = ReusableButton(title: "UIKit → SwiftUI Interop")
     private let navigationSectionLabel = SectionLabel(text: "Navigation")
     private let modalButton = ReusableButton(title: "Modal")
+    private let concurrencySectionLabel = SectionLabel(text: "Concurrency")
+    private let taskButton = ReusableButton(title: "Task example")
     private let assetsLocalizationLabel = SectionLabel(text: "Assets and Localization")
     private let imageButton = ReusableButton(title: "Image example")
     private let localizationButton = ReusableButton(title: "Localization example")
@@ -65,6 +67,8 @@ class RootViewController: UIViewController {
         stackView.addArrangedSubview(interopButton)
         stackView.addArrangedSubview(navigationSectionLabel)
         stackView.addArrangedSubview(modalButton)
+        stackView.addArrangedSubview(concurrencySectionLabel)
+        stackView.addArrangedSubview(taskButton)
         stackView.addArrangedSubview(assetsLocalizationLabel)
         stackView.addArrangedSubview(imageButton)
         stackView.addArrangedSubview(localizationButton)
@@ -90,6 +94,7 @@ class RootViewController: UIViewController {
         paginationButton.addTarget(self, action: #selector(paginationButtonTapped), for: .touchUpInside)
         interopButton.addTarget(self, action: #selector(interopButtonTapped), for: .touchUpInside)
         modalButton.addTarget(self, action: #selector(modalButtonTapped), for: .touchUpInside)
+        taskButton.addTarget(self, action: #selector(taskButtonTapped), for: .touchUpInside)
         imageButton.addTarget(self, action: #selector(imageButtonTapped), for: .touchUpInside)
         localizationButton.addTarget(self, action: #selector(localizationButtonTapped), for: .touchUpInside)
     }
@@ -117,6 +122,11 @@ class RootViewController: UIViewController {
     @objc private func modalButtonTapped() {
         let modalVC = ModalViewController()
         present(modalVC, animated: true)
+    }
+
+    @objc private func taskButtonTapped() {
+        let taskVC = TaskExampleViewController()
+        navigationController?.pushViewController(taskVC, animated: true)
     }
 
     @objc private func imageButtonTapped() {
