@@ -23,6 +23,9 @@ struct RootView: View {
                 NavigationLink(destination: PaginationView()) {
                     ReusableButton(title: "Pagination example")
                 }
+                NavigationLink(destination: EquatableExampleView()) {
+                    ReusableButton(title: "Equatable rendering")
+                }
             }
             .navigationTitle("Root")
         }
