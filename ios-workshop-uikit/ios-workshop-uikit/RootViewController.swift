@@ -7,6 +7,17 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+    private let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 16
+        stack.alignment = .center
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+
+    private let layoutButton = ReusableButton(title: "Go to Layout")
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         print("RootViewController - init")
@@ -23,8 +34,27 @@ class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        title = "Root"
+        view.backgroundColor = .systemBackground
+        setupViews()
         print("RootViewController - viewDidLoad")
+    }
+
+    private func setupViews() {
+        stackView.addArrangedSubview(layoutButton)
+        view.addSubview(stackView)
+
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+
+        layoutButton.addTarget(self, action: #selector(layoutButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func layoutButtonTapped() {
+        let layoutVC = LayoutViewController()
+        navigationController?.pushViewController(layoutVC, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
