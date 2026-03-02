@@ -11,14 +11,17 @@ struct RootView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 16) {
+                Text("Views Deepdive")
+                    .font(.system(size: 20, weight: .bold))
+
                 NavigationLink(destination: ExampleLayoutView()) {
-                    ReusableButton(title: "Views Deepdive - Example in slides")
+                    ReusableButton(title: "Example in slides")
                 }
                 NavigationLink(destination: LayoutView()) {
-                    ReusableButton(title: "Views Deepdive - BONUS: More complex layout example")
+                    ReusableButton(title: "More complex layout example")
                 }
                 NavigationLink(destination: PaginationView()) {
-                    ReusableButton(title: "Views Deepdive - Pagination")
+                    ReusableButton(title: "Pagination example")
                 }
             }
             .navigationTitle("Root")

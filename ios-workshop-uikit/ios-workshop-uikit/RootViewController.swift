@@ -16,9 +16,11 @@ class RootViewController: UIViewController {
         return stack
     }()
 
-    private let exampleLayoutButton = ReusableButton(title: "Views Deepdive - Example in slides")
-    private let layoutButton = ReusableButton(title: "Views Deepdive - BONUS: More complex layout example")
-    private let paginationButton = ReusableButton(title: "Pagination")
+    private let sectionLabel = SectionLabel(text: "Views Deepdive")
+
+    private let exampleLayoutButton = ReusableButton(title: "Example in slides")
+    private let layoutButton = ReusableButton(title: "More complex layout example")
+    private let paginationButton = ReusableButton(title: "Pagination example")
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -43,6 +45,7 @@ class RootViewController: UIViewController {
     }
 
     private func setupViews() {
+        stackView.addArrangedSubview(sectionLabel)
         stackView.addArrangedSubview(exampleLayoutButton)
         stackView.addArrangedSubview(layoutButton)
         stackView.addArrangedSubview(paginationButton)
