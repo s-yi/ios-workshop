@@ -1,0 +1,189 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%lld" : {
+
+    },
+    "Assets and Localization" : {
+
+    },
+    "Button" : {
+
+    },
+    "Counter: %lld" : {
+
+    },
+    "Equatable Example" : {
+
+    },
+    "Example Layout" : {
+
+    },
+    "Featured Card" : {
+
+    },
+    "globe_icon_accessibility_label" : {
+      "comment" : "Accessibility label for the globe image on the localization example screen",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Globe icon representing localization"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ícono de globo que representa la localización"
+          }
+        }
+      }
+    },
+    "got_it" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Got It"
+          }
+        }
+      }
+    },
+    "hello_world" : {
+      "comment" : "Greeting label on the localization example screen",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello, World!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Hola, Mundo!"
+          }
+        }
+      }
+    },
+    "Increment Counter" : {
+
+    },
+    "Layout" : {
+
+    },
+    "localization_example_title" : {
+      "comment" : "Navigation title for the localization demo screen",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localization Example"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejemplo de localización"
+          }
+        }
+      }
+    },
+    "Pagination" : {
+
+    },
+    "Pinned to bottom safe area" : {
+
+    },
+    "Root" : {
+
+    },
+    "string_localized_non_text_description" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The globe image above uses String(localized:) for its accessibility label — use this pattern whenever a plain String is required instead of a Text view."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La imagen del globo usa String(localized:) para su etiqueta de accesibilidad — usa este patrón cuando necesites un String plano en lugar de una vista Text."
+          }
+        }
+      }
+    },
+    "string_localized_non_text_section_title" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "String(localized:) for Non-Text"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "String(localized:) para no-Text"
+          }
+        }
+      }
+    },
+    "Subtitle" : {
+
+    },
+    "SwiftUI → UIKit" : {
+
+    },
+    "text_auto_localization_description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text() and .navigationTitle() use LocalizedStringKey by default — no extra wrapping needed. Xcode extracts these strings into the catalog at build time."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text() y .navigationTitle() usan LocalizedStringKey por defecto — no se necesita ningún envoltorio adicional. Xcode extrae estas cadenas al catálogo al compilar."
+          }
+        }
+      }
+    },
+    "text_auto_localization_section_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text() Auto-Localization"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localización automática con Text()"
+          }
+        }
+      }
+    },
+    "This card demonstrates padding, aspect ratio, and nested constraints." : {
+
+    },
+    "Title" : {
+
+    },
+    "Views Deepdive" : {
+
+    },
+    "Welcome to Layouts" : {
+
+    }
+  },
+  "version" : "1.0"
+}

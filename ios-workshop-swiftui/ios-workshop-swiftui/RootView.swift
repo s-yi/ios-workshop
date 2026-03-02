@@ -30,6 +30,11 @@ struct RootView: View {
                 NavigationLink(destination: InteropExampleView()) {
                     ReusableButton(title: "SwiftUI → UIKit Interop")
                 }
+                Text("Assets and Localization")
+                    .font(.system(size: 20, weight: .bold))
+                NavigationLink(destination: LocalizationExampleView()) {
+                    ReusableButton(title: "Localization example")
+                }
             }
             .padding(.vertical, 32)
             }

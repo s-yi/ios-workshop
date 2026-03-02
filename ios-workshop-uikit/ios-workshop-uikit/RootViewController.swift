@@ -29,6 +29,8 @@ class RootViewController: UIViewController {
     private let layoutButton = ReusableButton(title: "More complex layout example")
     private let paginationButton = ReusableButton(title: "Recycling & Pagination example")
     private let interopButton = ReusableButton(title: "UIKit → SwiftUI Interop")
+    private let assetsLocalizationLabel = SectionLabel(text: "Assets and Localization")
+    private let localizationButton = ReusableButton(title: "Localization example")
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -58,6 +60,8 @@ class RootViewController: UIViewController {
         stackView.addArrangedSubview(layoutButton)
         stackView.addArrangedSubview(paginationButton)
         stackView.addArrangedSubview(interopButton)
+        stackView.addArrangedSubview(assetsLocalizationLabel)
+        stackView.addArrangedSubview(localizationButton)
 
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
@@ -79,6 +83,7 @@ class RootViewController: UIViewController {
         exampleLayoutButton.addTarget(self, action: #selector(exampleLayoutButtonTapped), for: .touchUpInside)
         paginationButton.addTarget(self, action: #selector(paginationButtonTapped), for: .touchUpInside)
         interopButton.addTarget(self, action: #selector(interopButtonTapped), for: .touchUpInside)
+        localizationButton.addTarget(self, action: #selector(localizationButtonTapped), for: .touchUpInside)
     }
 
     @objc private func layoutButtonTapped() {
@@ -99,6 +104,11 @@ class RootViewController: UIViewController {
     @objc private func interopButtonTapped() {
         let interopVC = InteropExampleViewController()
         navigationController?.pushViewController(interopVC, animated: true)
+    }
+
+    @objc private func localizationButtonTapped() {
+        let localizationVC = LocalizationExampleViewController()
+        navigationController?.pushViewController(localizationVC, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {

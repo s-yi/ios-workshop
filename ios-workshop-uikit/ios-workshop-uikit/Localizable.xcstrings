@@ -1,0 +1,98 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Counter: %lld" : {
+
+    },
+    "got_it" : {
+      "comment" : "Button title on the localization example screen",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Got It"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entendido"
+          }
+        }
+      }
+    },
+    "hello_world" : {
+      "comment" : "Greeting label on the localization example screen",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello, World!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Hola, Mundo!"
+          }
+        }
+      }
+    },
+    "I'm a SwiftUI View" : {
+
+    },
+    "Increment" : {
+
+    },
+    "localization_example_title" : {
+      "comment" : "Navigation title for the localization demo screen",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localization Example"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejemplo de localización"
+          }
+        }
+      }
+    },
+    "localized_examples_description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use String(localized:) to wrap UIKit strings. Xcode extracts them into the String Catalog at build time, and you can add translations for any locale."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa String(localized:) para envolver cadenas en UIKit. Xcode las extrae al catálogo de cadenas al compilar, y puedes añadir traducciones para cualquier región."
+          }
+        }
+      }
+    },
+    "localized_examples_section_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "String(localized:) Examples"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejemplos de String(localized:)"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
