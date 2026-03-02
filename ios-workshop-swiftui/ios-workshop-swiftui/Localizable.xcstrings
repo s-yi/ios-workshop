@@ -13,6 +13,9 @@
     "Counter: %lld" : {
 
     },
+    "Did you know?" : {
+
+    },
     "Equatable Example" : {
 
     },
@@ -20,6 +23,12 @@
 
     },
     "Featured Card" : {
+
+    },
+    "Food" : {
+
+    },
+    "Fruits" : {
 
     },
     "globe_icon_accessibility_label" : {
@@ -219,6 +228,9 @@
 
     },
     "Title" : {
+
+    },
+    "Vegetables" : {
 
     },
     "Views Deepdive" : {

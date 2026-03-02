@@ -33,6 +33,11 @@ struct RootView: View {
                 }
                 Text("Navigation")
                     .font(.system(size: 20, weight: .bold))
+                // Value-based link so NavigationStackExampleView is created lazily —
+                // prevents its navigationDestination(for:) modifiers from registering twice.
+                NavigationLink(value: NavigationStackExampleRoute()) {
+                    ReusableButton(title: "Navigation Stack")
+                }
                 Button {
                     isModalPresented = true
                 } label: {
@@ -50,6 +55,9 @@ struct RootView: View {
             .padding(.vertical, 32)
             }
             .navigationTitle("Root")
+            .navigationDestination(for: NavigationStackExampleRoute.self) { _ in
+                NavigationStackExampleView()
+            }
         }
         .sheet(isPresented: $isModalPresented) {
             ModalView()
