@@ -9,13 +9,14 @@ struct RootView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack(spacing: 16) {
+                NavigationLink(destination: LayoutView()) {
+                    ReusableButton(title: "Go to Layout")
+                }
+            }
+            .navigationTitle("Root")
         }
-        .padding()
         .onAppear {
             print("RootView appeared")
         }
