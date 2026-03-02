@@ -43,6 +43,11 @@ struct RootView: View {
                 } label: {
                     ReusableButton(title: "Modal")
                 }
+                Text("Concurrency")
+                    .font(.system(size: 20, weight: .bold))
+                NavigationLink(destination: TaskExampleView()) {
+                    ReusableButton(title: ".task example")
+                }
                 Text("Assets and Localization")
                     .font(.system(size: 20, weight: .bold))
                 NavigationLink(destination: ImageExampleView()) {
@@ -52,6 +57,7 @@ struct RootView: View {
                     ReusableButton(title: "Localization example")
                 }
             }
+            .frame(maxWidth: .infinity)
             .padding(.vertical, 32)
             }
             .navigationTitle("Root")

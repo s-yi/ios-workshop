@@ -10,6 +10,12 @@
     "Button" : {
 
     },
+    "Category" : {
+
+    },
+    "Concurrency" : {
+
+    },
     "Counter: %lld" : {
 
     },
@@ -23,6 +29,9 @@
 
     },
     "Featured Card" : {
+
+    },
+    "Fetching %@…" : {
 
     },
     "Food" : {
@@ -190,6 +199,9 @@
 
     },
     "SwiftUI → UIKit" : {
+
+    },
+    "Task" : {
 
     },
     "text_auto_localization_description" : {
