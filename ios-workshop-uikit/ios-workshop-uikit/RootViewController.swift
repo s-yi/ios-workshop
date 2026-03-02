@@ -16,7 +16,8 @@ class RootViewController: UIViewController {
         return stack
     }()
 
-    private let layoutButton = ReusableButton(title: "Go to Layout")
+    private let exampleLayoutButton = ReusableButton(title: "Views Deepdive - Example in slides")
+    private let layoutButton = ReusableButton(title: "Views Deepdive - BONUS: More complex layout example")
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -41,6 +42,7 @@ class RootViewController: UIViewController {
     }
 
     private func setupViews() {
+        stackView.addArrangedSubview(exampleLayoutButton)
         stackView.addArrangedSubview(layoutButton)
         view.addSubview(stackView)
 
@@ -50,11 +52,17 @@ class RootViewController: UIViewController {
         ])
 
         layoutButton.addTarget(self, action: #selector(layoutButtonTapped), for: .touchUpInside)
+        exampleLayoutButton.addTarget(self, action: #selector(exampleLayoutButtonTapped), for: .touchUpInside)
     }
 
     @objc private func layoutButtonTapped() {
         let layoutVC = LayoutViewController()
         navigationController?.pushViewController(layoutVC, animated: true)
+    }
+
+    @objc private func exampleLayoutButtonTapped() {
+        let exampleVC = ExampleLayoutViewController()
+        navigationController?.pushViewController(exampleVC, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
