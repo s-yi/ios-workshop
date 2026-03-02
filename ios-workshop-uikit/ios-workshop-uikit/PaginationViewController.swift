@@ -5,12 +5,17 @@
 
 import UIKit
 
+// MARK: - Data Model
+
 struct ListItem {
     let id: Int
     let title: String
     let subtitle: String
 }
 
+// MARK: - Collection View Cell
+
+/// A reusable cell that displays a circular avatar with a number, a title, and a subtitle.
 class RowCell: UICollectionViewCell {
 
     static let reuseIdentifier = "RowCell"
@@ -63,18 +68,22 @@ class RowCell: UICollectionViewCell {
         contentView.addSubview(subtitleLabel)
 
         NSLayoutConstraint.activate([
+            // Avatar circle: 44x44, pinned to the leading edge, vertically centered
             avatarCircle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             avatarCircle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             avatarCircle.widthAnchor.constraint(equalToConstant: 44),
             avatarCircle.heightAnchor.constraint(equalToConstant: 44),
 
+            // Avatar number label: centered inside the circle
             avatarLabel.centerXAnchor.constraint(equalTo: avatarCircle.centerXAnchor),
             avatarLabel.centerYAnchor.constraint(equalTo: avatarCircle.centerYAnchor),
 
+            // Title: to the right of the avatar, pinned to the top of the cell
             titleLabel.leadingAnchor.constraint(equalTo: avatarCircle.trailingAnchor, constant: 12),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
 
+            // Subtitle: below the title, pinned to the bottom to allow self-sizing
             subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
@@ -89,6 +98,10 @@ class RowCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Pagination View Controller
+
+/// Demonstrates infinite-scroll pagination using UICollectionView.
+/// New pages of items are loaded when the user scrolls to the last visible cell.
 class PaginationViewController: UIViewController {
 
     private var items: [ListItem] = []
@@ -106,6 +119,7 @@ class PaginationViewController: UIViewController {
     }
 
     private func setupCollectionView() {
+        // Compositional layout: single column, self-sizing rows with 8pt spacing
         let layout = UICollectionViewCompositionalLayout { _, _ in
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -126,6 +140,7 @@ class PaginationViewController: UIViewController {
 
         view.addSubview(collectionView)
 
+        // Pin collection view edge-to-edge
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -134,6 +149,7 @@ class PaginationViewController: UIViewController {
         ])
     }
 
+    /// Appends the next page of items. Stops once maxItems is reached.
     private func loadMore() {
         let start = items.count
         guard start < maxItems else { return }
@@ -144,6 +160,8 @@ class PaginationViewController: UIViewController {
         collectionView.reloadData()
     }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension PaginationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -157,7 +175,10 @@ extension PaginationViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension PaginationViewController: UICollectionViewDelegate {
+    /// Triggers pagination when the last item is about to be displayed
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == items.count - 1 {
             loadMore()

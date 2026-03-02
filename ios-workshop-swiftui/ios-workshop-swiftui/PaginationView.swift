@@ -5,17 +5,23 @@
 
 import SwiftUI
 
+// MARK: - Data Model
+
 struct ListItem: Identifiable {
     let id: Int
     let title: String
     let subtitle: String
 }
 
+// MARK: - Row View
+
+/// A single row displaying a circular avatar with a number, a title, and a subtitle.
 struct RowView: View {
     let item: ListItem
 
     var body: some View {
         HStack(spacing: 12) {
+            // Numbered avatar circle
             Circle()
                 .fill(.indigo.opacity(0.2))
                 .frame(width: 44, height: 44)
@@ -25,6 +31,7 @@ struct RowView: View {
                         .foregroundStyle(.indigo)
                 }
 
+            // Title and subtitle stacked vertically
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
                     .font(.system(size: 16, weight: .semibold))
@@ -41,6 +48,10 @@ struct RowView: View {
     }
 }
 
+// MARK: - Pagination View
+
+/// Demonstrates infinite-scroll pagination using ScrollView + LazyVStack.
+/// New pages of items are loaded when the last row appears on screen.
 struct PaginationView: View {
     @State private var items: [ListItem] = []
     private let pageSize = 20
@@ -48,10 +59,12 @@ struct PaginationView: View {
 
     var body: some View {
         ScrollView {
+            // LazyVStack only creates views as they scroll into the visible area
             LazyVStack(spacing: 8) {
                 ForEach(items) { item in
                     RowView(item: item)
                         .onAppear {
+                            // When a row appears, check if it's the last one to trigger pagination
                             loadMoreIfNeeded(current: item)
                         }
                 }
@@ -59,17 +72,20 @@ struct PaginationView: View {
         }
         .navigationTitle("Pagination")
         .onAppear {
+            // Load the first page when the view appears
             if items.isEmpty {
                 loadMore()
             }
         }
     }
 
+    /// Only loads more if the currently appearing item is the last one in the list
     private func loadMoreIfNeeded(current item: ListItem) {
         guard item.id == items.last?.id else { return }
         loadMore()
     }
 
+    /// Appends the next page of items. Stops once maxItems is reached.
     private func loadMore() {
         let start = items.count
         guard start < maxItems else { return }
