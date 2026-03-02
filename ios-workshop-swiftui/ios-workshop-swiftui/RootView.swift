@@ -26,6 +26,9 @@ struct RootView: View {
                 NavigationLink(destination: EquatableExampleView()) {
                     ReusableButton(title: "Equatable rendering")
                 }
+                NavigationLink(destination: InteropExampleView()) {
+                    ReusableButton(title: "SwiftUI → UIKit Interop")
+                }
             }
             .navigationTitle("Root")
         }

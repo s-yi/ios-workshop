@@ -21,6 +21,7 @@ class RootViewController: UIViewController {
     private let exampleLayoutButton = ReusableButton(title: "Example in slides")
     private let layoutButton = ReusableButton(title: "More complex layout example")
     private let paginationButton = ReusableButton(title: "Recycling & Pagination example")
+    private let interopButton = ReusableButton(title: "UIKit → SwiftUI Interop")
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -49,6 +50,7 @@ class RootViewController: UIViewController {
         stackView.addArrangedSubview(exampleLayoutButton)
         stackView.addArrangedSubview(layoutButton)
         stackView.addArrangedSubview(paginationButton)
+        stackView.addArrangedSubview(interopButton)
         view.addSubview(stackView)
 
         NSLayoutConstraint.activate([
@@ -59,6 +61,7 @@ class RootViewController: UIViewController {
         layoutButton.addTarget(self, action: #selector(layoutButtonTapped), for: .touchUpInside)
         exampleLayoutButton.addTarget(self, action: #selector(exampleLayoutButtonTapped), for: .touchUpInside)
         paginationButton.addTarget(self, action: #selector(paginationButtonTapped), for: .touchUpInside)
+        interopButton.addTarget(self, action: #selector(interopButtonTapped), for: .touchUpInside)
     }
 
     @objc private func layoutButtonTapped() {
@@ -74,6 +77,11 @@ class RootViewController: UIViewController {
     @objc private func paginationButtonTapped() {
         let paginationVC = PaginationViewController()
         navigationController?.pushViewController(paginationVC, animated: true)
+    }
+
+    @objc private func interopButtonTapped() {
+        let interopVC = InteropExampleViewController()
+        navigationController?.pushViewController(interopVC, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
