@@ -18,6 +18,7 @@ class RootViewController: UIViewController {
 
     private let exampleLayoutButton = ReusableButton(title: "Views Deepdive - Example in slides")
     private let layoutButton = ReusableButton(title: "Views Deepdive - BONUS: More complex layout example")
+    private let paginationButton = ReusableButton(title: "Pagination")
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -44,6 +45,7 @@ class RootViewController: UIViewController {
     private func setupViews() {
         stackView.addArrangedSubview(exampleLayoutButton)
         stackView.addArrangedSubview(layoutButton)
+        stackView.addArrangedSubview(paginationButton)
         view.addSubview(stackView)
 
         NSLayoutConstraint.activate([
@@ -53,6 +55,7 @@ class RootViewController: UIViewController {
 
         layoutButton.addTarget(self, action: #selector(layoutButtonTapped), for: .touchUpInside)
         exampleLayoutButton.addTarget(self, action: #selector(exampleLayoutButtonTapped), for: .touchUpInside)
+        paginationButton.addTarget(self, action: #selector(paginationButtonTapped), for: .touchUpInside)
     }
 
     @objc private func layoutButtonTapped() {
@@ -63,6 +66,11 @@ class RootViewController: UIViewController {
     @objc private func exampleLayoutButtonTapped() {
         let exampleVC = ExampleLayoutViewController()
         navigationController?.pushViewController(exampleVC, animated: true)
+    }
+
+    @objc private func paginationButtonTapped() {
+        let paginationVC = PaginationViewController()
+        navigationController?.pushViewController(paginationVC, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {

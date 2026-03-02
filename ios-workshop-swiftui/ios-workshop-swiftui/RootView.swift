@@ -17,6 +17,9 @@ struct RootView: View {
                 NavigationLink(destination: LayoutView()) {
                     ReusableButton(title: "Views Deepdive - BONUS: More complex layout example")
                 }
+                NavigationLink(destination: PaginationView()) {
+                    ReusableButton(title: "Views Deepdive - Pagination")
+                }
             }
             .navigationTitle("Root")
         }
