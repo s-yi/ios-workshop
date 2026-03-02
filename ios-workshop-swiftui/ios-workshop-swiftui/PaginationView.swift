@@ -61,11 +61,18 @@ struct PaginationView: View {
         ScrollView {
             // LazyVStack only creates views as they scroll into the visible area
             LazyVStack(spacing: 8) {
+                // Tip: For cells with heavy resources (e.g. images, video thumbnails),
+                // use .onAppear to load them and .onDisappear to release them.
+                // This keeps memory usage low in long lists since LazyVStack
+                // only keeps visible views alive, but their data may persist.
                 ForEach(items) { item in
                     RowView(item: item)
                         .onAppear {
-                            // When a row appears, check if it's the last one to trigger pagination
                             loadMoreIfNeeded(current: item)
+                            loadHeavyResources(for: item)
+                        }
+                        .onDisappear {
+                            unloadHeavyResources(for: item)
                         }
                 }
             }
@@ -84,6 +91,12 @@ struct PaginationView: View {
         guard item.id == items.last?.id else { return }
         loadMore()
     }
+
+    // Load heavy resources like images when a cell becomes visible
+    private func loadHeavyResources(for item: ListItem) {}
+
+    // Release heavy resources when a cell scrolls off screen to free memory
+    private func unloadHeavyResources(for item: ListItem) {}
 
     /// Appends the next page of items. Stops once maxItems is reached.
     private func loadMore() {

@@ -20,7 +20,7 @@ class RootViewController: UIViewController {
 
     private let exampleLayoutButton = ReusableButton(title: "Example in slides")
     private let layoutButton = ReusableButton(title: "More complex layout example")
-    private let paginationButton = ReusableButton(title: "Pagination example")
+    private let paginationButton = ReusableButton(title: "Recycling & Pagination example")
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
