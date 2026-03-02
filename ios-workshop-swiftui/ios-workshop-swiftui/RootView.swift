@@ -7,6 +7,7 @@ import SwiftUI
 
 struct RootView: View {
     @Environment(\.scenePhase) private var scenePhase
+    @State private var isModalPresented = false
 
     var body: some View {
         NavigationStack {
@@ -30,6 +31,13 @@ struct RootView: View {
                 NavigationLink(destination: InteropExampleView()) {
                     ReusableButton(title: "SwiftUI → UIKit Interop")
                 }
+                Text("Navigation")
+                    .font(.system(size: 20, weight: .bold))
+                Button {
+                    isModalPresented = true
+                } label: {
+                    ReusableButton(title: "Modal")
+                }
                 Text("Assets and Localization")
                     .font(.system(size: 20, weight: .bold))
                 NavigationLink(destination: ImageExampleView()) {
@@ -42,6 +50,9 @@ struct RootView: View {
             .padding(.vertical, 32)
             }
             .navigationTitle("Root")
+        }
+        .sheet(isPresented: $isModalPresented) {
+            ModalView()
         }
         .onAppear {
             print("RootView appeared")

@@ -29,6 +29,8 @@ class RootViewController: UIViewController {
     private let layoutButton = ReusableButton(title: "More complex layout example")
     private let paginationButton = ReusableButton(title: "Recycling & Pagination example")
     private let interopButton = ReusableButton(title: "UIKit → SwiftUI Interop")
+    private let navigationSectionLabel = SectionLabel(text: "Navigation")
+    private let modalButton = ReusableButton(title: "Modal")
     private let assetsLocalizationLabel = SectionLabel(text: "Assets and Localization")
     private let imageButton = ReusableButton(title: "Image example")
     private let localizationButton = ReusableButton(title: "Localization example")
@@ -61,6 +63,8 @@ class RootViewController: UIViewController {
         stackView.addArrangedSubview(layoutButton)
         stackView.addArrangedSubview(paginationButton)
         stackView.addArrangedSubview(interopButton)
+        stackView.addArrangedSubview(navigationSectionLabel)
+        stackView.addArrangedSubview(modalButton)
         stackView.addArrangedSubview(assetsLocalizationLabel)
         stackView.addArrangedSubview(imageButton)
         stackView.addArrangedSubview(localizationButton)
@@ -85,6 +89,7 @@ class RootViewController: UIViewController {
         exampleLayoutButton.addTarget(self, action: #selector(exampleLayoutButtonTapped), for: .touchUpInside)
         paginationButton.addTarget(self, action: #selector(paginationButtonTapped), for: .touchUpInside)
         interopButton.addTarget(self, action: #selector(interopButtonTapped), for: .touchUpInside)
+        modalButton.addTarget(self, action: #selector(modalButtonTapped), for: .touchUpInside)
         imageButton.addTarget(self, action: #selector(imageButtonTapped), for: .touchUpInside)
         localizationButton.addTarget(self, action: #selector(localizationButtonTapped), for: .touchUpInside)
     }
@@ -107,6 +112,11 @@ class RootViewController: UIViewController {
     @objc private func interopButtonTapped() {
         let interopVC = InteropExampleViewController()
         navigationController?.pushViewController(interopVC, animated: true)
+    }
+
+    @objc private func modalButtonTapped() {
+        let modalVC = ModalViewController()
+        present(modalVC, animated: true)
     }
 
     @objc private func imageButtonTapped() {
