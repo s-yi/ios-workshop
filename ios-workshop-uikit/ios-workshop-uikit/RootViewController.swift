@@ -23,7 +23,13 @@ class RootViewController: UIViewController {
         return stack
     }()
 
-    private let sectionLabel = SectionLabel(text: "Views Deepdive")
+    private let assetsLocalizationLabel = SectionLabel(text: "Assets and Localization")
+    private let imageButton = ReusableButton(title: "Image example")
+    private let localizationButton = ReusableButton(title: "Localization example")
+    private let concurrencySectionLabel = SectionLabel(text: "Concurrency")
+    private let taskButton = ReusableButton(title: "Task example")
+    private let dispatchQueueButton = ReusableButton(title: "DispatchQueue example")
+    private let viewsDeepDiveLabel = SectionLabel(text: "Views Deepdive")
 
     private let exampleLayoutButton = ReusableButton(title: "Example in slides")
     private let layoutButton = ReusableButton(title: "More complex layout example")
@@ -31,15 +37,9 @@ class RootViewController: UIViewController {
     private let interopButton = ReusableButton(title: "UIKit → SwiftUI Interop")
     private let navigationSectionLabel = SectionLabel(text: "Navigation")
     private let modalButton = ReusableButton(title: "Modal")
-    private let concurrencySectionLabel = SectionLabel(text: "Concurrency")
-    private let taskButton = ReusableButton(title: "Task example")
-    private let dispatchQueueButton = ReusableButton(title: "DispatchQueue example")
     private let viewModelSectionLabel = SectionLabel(text: "ViewModel")
     private let counterButton = ReusableButton(title: "Counter (MVVM)")
     private let postsButton = ReusableButton(title: "Posts (MVVM + DI)")
-    private let assetsLocalizationLabel = SectionLabel(text: "Assets and Localization")
-    private let imageButton = ReusableButton(title: "Image example")
-    private let localizationButton = ReusableButton(title: "Localization example")
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -64,22 +64,22 @@ class RootViewController: UIViewController {
     }
 
     private func setupViews() {
-        stackView.addArrangedSubview(sectionLabel)
+        stackView.addArrangedSubview(assetsLocalizationLabel)
+        stackView.addArrangedSubview(imageButton)
+        stackView.addArrangedSubview(localizationButton)
+        stackView.addArrangedSubview(concurrencySectionLabel)
+        stackView.addArrangedSubview(taskButton)
+        stackView.addArrangedSubview(dispatchQueueButton)
+        stackView.addArrangedSubview(viewsDeepDiveLabel)
         stackView.addArrangedSubview(exampleLayoutButton)
         stackView.addArrangedSubview(layoutButton)
         stackView.addArrangedSubview(paginationButton)
         stackView.addArrangedSubview(interopButton)
         stackView.addArrangedSubview(navigationSectionLabel)
         stackView.addArrangedSubview(modalButton)
-        stackView.addArrangedSubview(concurrencySectionLabel)
-        stackView.addArrangedSubview(taskButton)
-        stackView.addArrangedSubview(dispatchQueueButton)
         stackView.addArrangedSubview(viewModelSectionLabel)
         stackView.addArrangedSubview(counterButton)
         stackView.addArrangedSubview(postsButton)
-        stackView.addArrangedSubview(assetsLocalizationLabel)
-        stackView.addArrangedSubview(imageButton)
-        stackView.addArrangedSubview(localizationButton)
 
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)

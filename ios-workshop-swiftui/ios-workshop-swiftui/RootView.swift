@@ -13,9 +13,21 @@ struct RootView: View {
         NavigationStack {
             ScrollView {
             VStack(spacing: 16) {
+                Text("Assets and Localization")
+                    .font(.system(size: 20, weight: .bold))
+                NavigationLink(destination: ImageExampleView()) {
+                    ReusableButton(title: "Image example")
+                }
+                NavigationLink(destination: LocalizationExampleView()) {
+                    ReusableButton(title: "Localization example")
+                }
+                Text("Concurrency")
+                    .font(.system(size: 20, weight: .bold))
+                NavigationLink(destination: TaskExampleView()) {
+                    ReusableButton(title: ".task example")
+                }
                 Text("Views Deepdive")
                     .font(.system(size: 20, weight: .bold))
-
                 NavigationLink(destination: ExampleLayoutView()) {
                     ReusableButton(title: "Example in slides")
                 }
@@ -43,11 +55,6 @@ struct RootView: View {
                 } label: {
                     ReusableButton(title: "Modal")
                 }
-                Text("Concurrency")
-                    .font(.system(size: 20, weight: .bold))
-                NavigationLink(destination: TaskExampleView()) {
-                    ReusableButton(title: ".task example")
-                }
                 Text("ViewModel")
                     .font(.system(size: 20, weight: .bold))
                 NavigationLink(destination: CounterView(viewModel: CounterViewModel())) {
@@ -55,14 +62,6 @@ struct RootView: View {
                 }
                 NavigationLink(destination: PostsView(viewModel: PostsViewModel())) {
                     ReusableButton(title: "Posts (MVVM + DI)")
-                }
-                Text("Assets and Localization")
-                    .font(.system(size: 20, weight: .bold))
-                NavigationLink(destination: ImageExampleView()) {
-                    ReusableButton(title: "Image example")
-                }
-                NavigationLink(destination: LocalizationExampleView()) {
-                    ReusableButton(title: "Localization example")
                 }
             }
             .frame(maxWidth: .infinity)
