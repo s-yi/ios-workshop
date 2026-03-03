@@ -26,6 +26,14 @@ struct RootView: View {
                 NavigationLink(destination: TaskExampleView()) {
                     ReusableButton(title: ".task example")
                 }
+                Text("ViewModel")
+                    .font(.system(size: 20, weight: .bold))
+                NavigationLink(destination: CounterView(viewModel: CounterViewModel())) {
+                    ReusableButton(title: "Counter (MVVM)")
+                }
+                NavigationLink(destination: PostsView(viewModel: PostsViewModel())) {
+                    ReusableButton(title: "Posts (MVVM + DI)")
+                }
                 Text("Views Deepdive")
                     .font(.system(size: 20, weight: .bold))
                 NavigationLink(destination: ExampleLayoutView()) {
@@ -54,14 +62,6 @@ struct RootView: View {
                     isModalPresented = true
                 } label: {
                     ReusableButton(title: "Modal")
-                }
-                Text("ViewModel")
-                    .font(.system(size: 20, weight: .bold))
-                NavigationLink(destination: CounterView(viewModel: CounterViewModel())) {
-                    ReusableButton(title: "Counter (MVVM)")
-                }
-                NavigationLink(destination: PostsView(viewModel: PostsViewModel())) {
-                    ReusableButton(title: "Posts (MVVM + DI)")
                 }
             }
             .frame(maxWidth: .infinity)
