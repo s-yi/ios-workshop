@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		38D8FAF82F56638D0022B65A /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 38D8FAF72F56638D0022B65A /* Dependencies */; };
+		38D8FAFA2F56638D0022B65A /* DependenciesMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 38D8FAF92F56638D0022B65A /* DependenciesMacros */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3844BEE22F527C67008C1C9F /* ios-workshop-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-workshop-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D8FAFA2F56638D0022B65A /* DependenciesMacros in Frameworks */,
+				38D8FAF82F56638D0022B65A /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = "ios-workshop-swiftui";
 			packageProductDependencies = (
+				38D8FAF72F56638D0022B65A /* Dependencies */,
+				38D8FAF92F56638D0022B65A /* DependenciesMacros */,
 			);
 			productName = "ios-workshop-swiftui";
 			productReference = 3844BEE22F527C67008C1C9F /* ios-workshop-swiftui.app */;
@@ -94,6 +103,9 @@
 			);
 			mainGroup = 3844BED92F527C67008C1C9F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				38D8FAF62F56638D0022B65A /* XCRemoteSwiftPackageReference "swift-dependencies" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3844BEE32F527C67008C1C9F /* Products */;
 			projectDirPath = "";
@@ -328,6 +340,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38D8FAF62F56638D0022B65A /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies";
+			requirement = {
+				kind = exactVersion;
+				version = 1.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38D8FAF72F56638D0022B65A /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38D8FAF62F56638D0022B65A /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = Dependencies;
+		};
+		38D8FAF92F56638D0022B65A /* DependenciesMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38D8FAF62F56638D0022B65A /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = DependenciesMacros;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3844BEDA2F527C67008C1C9F /* Project object */;
 }

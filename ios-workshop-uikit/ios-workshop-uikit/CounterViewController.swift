@@ -5,6 +5,7 @@
 
 import UIKit
 import Combine
+import Dependencies
 
 // MARK: - Protocol
 

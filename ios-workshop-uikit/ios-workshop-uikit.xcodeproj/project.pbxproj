@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		38D8FA692F5662570022B65A /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 38D8FA682F5662570022B65A /* Dependencies */; };
+		38D8FA6B2F5662570022B65A /* DependenciesMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 38D8FA6A2F5662570022B65A /* DependenciesMacros */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		3844BE912F527374008C1C9F /* ios-workshop-uikit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-workshop-uikit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D8FA6B2F5662570022B65A /* DependenciesMacros in Frameworks */,
+				38D8FA692F5662570022B65A /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = "ios-workshop-uikit";
 			packageProductDependencies = (
+				38D8FA682F5662570022B65A /* Dependencies */,
+				38D8FA6A2F5662570022B65A /* DependenciesMacros */,
 			);
 			productName = "ios-workshop-uikit";
 			productReference = 3844BE912F527374008C1C9F /* ios-workshop-uikit.app */;
@@ -107,6 +116,9 @@
 			);
 			mainGroup = 3844BE882F527374008C1C9F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				38D8FA672F5662570022B65A /* XCRemoteSwiftPackageReference "swift-dependencies" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3844BE922F527374008C1C9F /* Products */;
 			projectDirPath = "";
@@ -339,6 +351,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38D8FA672F5662570022B65A /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies";
+			requirement = {
+				kind = exactVersion;
+				version = 1.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38D8FA682F5662570022B65A /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38D8FA672F5662570022B65A /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = Dependencies;
+		};
+		38D8FA6A2F5662570022B65A /* DependenciesMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38D8FA672F5662570022B65A /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = DependenciesMacros;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3844BE892F527374008C1C9F /* Project object */;
 }
