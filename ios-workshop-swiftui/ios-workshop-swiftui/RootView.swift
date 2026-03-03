@@ -48,6 +48,11 @@ struct RootView: View {
                 NavigationLink(destination: TaskExampleView()) {
                     ReusableButton(title: ".task example")
                 }
+                Text("ViewModel")
+                    .font(.system(size: 20, weight: .bold))
+                NavigationLink(destination: CounterView()) {
+                    ReusableButton(title: "Counter (MVVM)")
+                }
                 Text("Assets and Localization")
                     .font(.system(size: 20, weight: .bold))
                 NavigationLink(destination: ImageExampleView()) {

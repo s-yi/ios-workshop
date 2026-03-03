@@ -34,6 +34,8 @@ class RootViewController: UIViewController {
     private let concurrencySectionLabel = SectionLabel(text: "Concurrency")
     private let taskButton = ReusableButton(title: "Task example")
     private let dispatchQueueButton = ReusableButton(title: "DispatchQueue example")
+    private let viewModelSectionLabel = SectionLabel(text: "ViewModel")
+    private let counterButton = ReusableButton(title: "Counter (MVVM)")
     private let assetsLocalizationLabel = SectionLabel(text: "Assets and Localization")
     private let imageButton = ReusableButton(title: "Image example")
     private let localizationButton = ReusableButton(title: "Localization example")
@@ -71,6 +73,8 @@ class RootViewController: UIViewController {
         stackView.addArrangedSubview(concurrencySectionLabel)
         stackView.addArrangedSubview(taskButton)
         stackView.addArrangedSubview(dispatchQueueButton)
+        stackView.addArrangedSubview(viewModelSectionLabel)
+        stackView.addArrangedSubview(counterButton)
         stackView.addArrangedSubview(assetsLocalizationLabel)
         stackView.addArrangedSubview(imageButton)
         stackView.addArrangedSubview(localizationButton)
@@ -97,6 +101,7 @@ class RootViewController: UIViewController {
         interopButton.addTarget(self, action: #selector(interopButtonTapped), for: .touchUpInside)
         modalButton.addTarget(self, action: #selector(modalButtonTapped), for: .touchUpInside)
         taskButton.addTarget(self, action: #selector(taskButtonTapped), for: .touchUpInside)
+        counterButton.addTarget(self, action: #selector(counterButtonTapped), for: .touchUpInside)
         dispatchQueueButton.addTarget(self, action: #selector(dispatchQueueButtonTapped), for: .touchUpInside)
         imageButton.addTarget(self, action: #selector(imageButtonTapped), for: .touchUpInside)
         localizationButton.addTarget(self, action: #selector(localizationButtonTapped), for: .touchUpInside)
@@ -130,6 +135,11 @@ class RootViewController: UIViewController {
     @objc private func taskButtonTapped() {
         let taskVC = TaskExampleViewController()
         navigationController?.pushViewController(taskVC, animated: true)
+    }
+
+    @objc private func counterButtonTapped() {
+        let counterVC = CounterViewController()
+        navigationController?.pushViewController(counterVC, animated: true)
     }
 
     @objc private func dispatchQueueButtonTapped() {
