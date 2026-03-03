@@ -53,6 +53,9 @@ struct RootView: View {
                 NavigationLink(destination: CounterView(viewModel: CounterViewModel())) {
                     ReusableButton(title: "Counter (MVVM)")
                 }
+                NavigationLink(destination: PostsView(viewModel: PostsViewModel())) {
+                    ReusableButton(title: "Posts (MVVM + DI)")
+                }
                 Text("Assets and Localization")
                     .font(.system(size: 20, weight: .bold))
                 NavigationLink(destination: ImageExampleView()) {

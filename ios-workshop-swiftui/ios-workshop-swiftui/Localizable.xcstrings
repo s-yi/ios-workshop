@@ -129,6 +129,9 @@
     "Layout" : {
 
     },
+    "Loading posts…" : {
+
+    },
     "localization_example_title" : {
       "comment" : "Navigation title for the localization demo screen",
       "localizations" : {
@@ -158,10 +161,16 @@
     "Pinned to bottom safe area" : {
 
     },
+    "Posts" : {
+
+    },
     "Presented modally using .sheet()" : {
 
     },
     "Reset" : {
+
+    },
+    "Retry" : {
 
     },
     "Root" : {
