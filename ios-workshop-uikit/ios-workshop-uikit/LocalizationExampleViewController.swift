@@ -59,7 +59,7 @@ class LocalizationExampleViewController: UIViewController {
 
     private func setupViews() {
         greetingLabel.text = String(localized: "hello_world", defaultValue: "Hello, World!")
-        descriptionLabel.text = String(localized: "localized_examples_description", defaultValue: "Use String(localized:) to wrap UIKit strings. Xcode extracts them into the String Catalog at build time, and you can add translations for any locale.")
+        descriptionLabel.text = String(localized: "localized_examples_description")
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
 
         stackView.addArrangedSubview(sectionLabel)
