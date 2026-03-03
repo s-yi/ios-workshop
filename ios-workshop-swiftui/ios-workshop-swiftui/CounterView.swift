@@ -5,13 +5,25 @@
 
 import SwiftUI
 
+// MARK: - Protocol
+
+/// Defines the interface between CounterView and its ViewModel.
+/// Conforming to Observable means SwiftUI will automatically track property
+/// accesses in the view body and re-render when they change.
+protocol CounterViewModelProtocol: Observable, AnyObject {
+    var count: Int { get }
+    func increment()
+    func decrement()
+    func reset()
+}
+
 // MARK: - ViewModel
 
 /// @Observable replaces ObservableObject + @Published (available from iOS 17).
 /// Any View that reads a property automatically re-renders when it changes —
 /// no explicit @Published annotation needed on individual properties.
 @Observable
-class CounterViewModel {
+class CounterViewModel: CounterViewModelProtocol {
     private(set) var count = 0
 
     func increment() { count += 1 }
@@ -21,17 +33,21 @@ class CounterViewModel {
 
 // MARK: - View
 
-/// Demonstrates MVVM with @Observable in SwiftUI.
+/// Demonstrates MVVM with @Observable and protocol-based injection in SwiftUI.
 ///
 /// Key points:
-/// - The ViewModel holds all state and business logic; the View is purely presentational.
-/// - @Observable is the modern replacement for ObservableObject + @Published (iOS 17+).
-/// - @State owns the ViewModel instance — it lives as long as the view does.
-/// - No @StateObject, no @Published, no sink — just read properties directly.
-struct CounterView: View {
-    // @State owns the ViewModel. Using @State (not a plain let) ensures SwiftUI
-    // manages its lifetime and doesn't recreate it on every body evaluation.
-    @State private var viewModel = CounterViewModel()
+/// - CounterView is generic over any CounterViewModelProtocol, making it
+///   testable and swappable without changing the view.
+/// - The ViewModel is injected through the initializer (constructor injection).
+/// - @State wraps the injected instance so SwiftUI manages its lifetime.
+/// - Because ViewModel conforms to Observable, SwiftUI automatically tracks
+///   which properties are read in body and re-renders on changes.
+struct CounterView<ViewModel: CounterViewModelProtocol>: View {
+    @State private var viewModel: ViewModel
+
+    init(viewModel: ViewModel) {
+        _viewModel = State(initialValue: viewModel)
+    }
 
     var body: some View {
         VStack(spacing: 32) {
@@ -68,6 +84,6 @@ struct CounterView: View {
 
 #Preview {
     NavigationStack {
-        CounterView()
+        CounterView(viewModel: CounterViewModel())
     }
 }

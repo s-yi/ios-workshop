@@ -6,13 +6,29 @@
 import UIKit
 import Combine
 
+// MARK: - Protocol
+
+/// Defines the interface between CounterViewController and its ViewModel.
+/// Exposes count as an AnyPublisher rather than @Published directly —
+/// protocols cannot carry property wrappers, so the concrete implementation
+/// erases its @Published property to AnyPublisher at the boundary.
+protocol CounterViewModelProtocol: AnyObject {
+    var countPublisher: AnyPublisher<Int, Never> { get }
+    func increment()
+    func decrement()
+    func reset()
+}
+
 // MARK: - ViewModel
 
 /// The ViewModel exposes state as @Published properties.
 /// Any subscriber (the ViewController) receives a new value on the main thread
 /// via .receive(on: DispatchQueue.main) and updates the UI accordingly.
-class CounterViewModel: ObservableObject {
+class CounterViewModel: ObservableObject, CounterViewModelProtocol {
     @Published private(set) var count = 0
+
+    // Erases the @Published projected value to the protocol's AnyPublisher type.
+    var countPublisher: AnyPublisher<Int, Never> { $count.eraseToAnyPublisher() }
 
     func increment() { count += 1 }
     func decrement() { count -= 1 }
@@ -21,11 +37,12 @@ class CounterViewModel: ObservableObject {
 
 // MARK: - ViewController
 
-/// Demonstrates MVVM with Combine in UIKit.
+/// Demonstrates MVVM with Combine and protocol-based injection in UIKit.
 ///
 /// Key points:
-/// - The ViewModel holds all state and business logic; the ViewController is
-///   purely presentational — it only calls ViewModel methods and binds outputs.
+/// - CounterViewController depends on CounterViewModelProtocol, not the concrete
+///   class — making it testable and swappable without changing the ViewController.
+/// - The ViewModel is injected through the initializer (constructor injection).
 /// - @Published + sink replaces manual delegation or callbacks.
 /// - Subscriptions are stored in a Set<AnyCancellable> and automatically
 ///   cancelled when the ViewController is deallocated.
@@ -35,8 +52,17 @@ class CounterViewController: UIViewController {
 
     // MARK: - Dependencies
 
-    private let viewModel = CounterViewModel()
+    private let viewModel: CounterViewModelProtocol
     private var cancellables = Set<AnyCancellable>()
+
+    init(viewModel: CounterViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Views
 
@@ -75,7 +101,7 @@ class CounterViewController: UIViewController {
         // sink receives a new value every time count changes and updates the label.
         // .receive(on:) ensures this runs on the main thread.
         // The AnyCancellable is stored so the subscription lives as long as the VC.
-        viewModel.$count
+        viewModel.countPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] count in
                 self?.countLabel.text = "\(count)"
@@ -120,5 +146,5 @@ class CounterViewController: UIViewController {
 }
 
 #Preview("CounterViewController") {
-    UINavigationController(rootViewController: CounterViewController())
+    UINavigationController(rootViewController: CounterViewController(viewModel: CounterViewModel()))
 }

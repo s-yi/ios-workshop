@@ -50,7 +50,7 @@ struct RootView: View {
                 }
                 Text("ViewModel")
                     .font(.system(size: 20, weight: .bold))
-                NavigationLink(destination: CounterView()) {
+                NavigationLink(destination: CounterView(viewModel: CounterViewModel())) {
                     ReusableButton(title: "Counter (MVVM)")
                 }
                 Text("Assets and Localization")

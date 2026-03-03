@@ -138,7 +138,7 @@ class RootViewController: UIViewController {
     }
 
     @objc private func counterButtonTapped() {
-        let counterVC = CounterViewController()
+        let counterVC = CounterViewController(viewModel: CounterViewModel())
         navigationController?.pushViewController(counterVC, animated: true)
     }
 
