@@ -24,7 +24,7 @@ class RootViewController: UIViewController {
     }()
 
     private let assetsLocalizationLabel = SectionLabel(text: "Assets and Localization")
-    private let imageButton = ReusableButton(title: "Image example")
+    private let imageButton = ReusableButton(title: "Asset Image example")
     private let localizationButton = ReusableButton(title: "Localization example")
     private let concurrencySectionLabel = SectionLabel(text: "Concurrency")
     private let taskButton = ReusableButton(title: "Task example")
