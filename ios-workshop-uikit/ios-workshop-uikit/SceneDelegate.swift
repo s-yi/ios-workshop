@@ -5,6 +5,11 @@
 
 import UIKit
 
+// SceneDelegate is preferred over AppDelegate for UI setup because it manages the lifecycle
+// of individual UI scenes (windows), enabling multi-window support on iPadOS and allowing
+// the system to independently create, destroy, and restore each scene. AppDelegate is
+// intentionally limited to app-level events (launch, push tokens, background tasks), keeping
+// UI concerns cleanly separated and making each scene independently testable.
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
